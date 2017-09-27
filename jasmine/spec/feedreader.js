@@ -95,9 +95,26 @@ $(function() {
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
+        //asynchronous callback function that stores html data from the loading of two
+        //different feeds to variables outside of the functions scope
+        let feed1,
+            feed2;
+
+        beforeEach(function (done) {
+            loadFeed(0, function() {
+                feed1 = $('.feed').html();
+                loadFeed(1, function() {
+                    feed2 = $('.feed').html();
+                    done();
+                });
+            });
+        });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('loadFeed actually changes content', function() {
+            expect(feed1).not.toEqual(feed2);
+        });
     });
 }());
