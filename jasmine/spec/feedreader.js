@@ -35,6 +35,7 @@ $(function() {
          it('should have defined URLs', function() {
              for (feed of allFeeds) {
                 expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
              };
          });
 
