@@ -32,12 +32,12 @@ $(function() {
          * and that the URL is not empty.
          */
 
-         it('should have defined URLs', function() {
-             for (feed of allFeeds) {
+        it('should have defined URLs', function() {
+            allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
-             };
-         });
+            });
+        });
 
 
         /* TODO: Write a test that loops through each feed
@@ -45,12 +45,12 @@ $(function() {
          * and that the name is not empty.
          */
 
-         it('should have defined names', function() {
-             for (feed of allFeeds) {
+        it('should have defined names', function() {
+            allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
-             };
-         });
+            });
+        });
     });
 
 
@@ -62,21 +62,21 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-         it('menu element is hidden', function() {
+        it('menu element is hidden', function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
-         });
+        });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          it('menu changes visibility when menu icon is clicked', function () {
-              $('.menu-icon-link').click();
-              expect($('body').hasClass('menu-hidden')).toBe(false);
-              $('.menu-icon-link').click();
-              expect($('body').hasClass('menu-hidden')).toBe(true);
-          });
+        it('menu changes visibility when menu icon is clicked', function () {
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+        });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
